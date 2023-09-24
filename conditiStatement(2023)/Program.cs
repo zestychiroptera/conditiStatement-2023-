@@ -212,3 +212,104 @@
 
 // 9. Write a program to accept a coordinate pair (x,y) and then determine which quadrant the coordinate lies on.
 
+
+// Create boolean value to handle looping again for error handling.
+bool invalidInput = true;
+while (invalidInput)
+{
+	// Prompt user to input a coordinate pair.
+	Console.WriteLine("Please enter a coordinate pair: \n");
+	Console.WriteLine();
+	// Prompt the user to input a value for "x."
+	Console.WriteLine("Please enter the value for 'x': \n");
+	Console.WriteLine();
+	string x = Console.ReadLine().ToLower();
+	// Prompt the user to input a value for "y."
+	Console.WriteLine("Please enter the value for 'y': \n");
+	Console.WriteLine();
+	string y = Console.ReadLine().ToLower();
+	// Parse user "string" input into "integer" datatype.
+	if (int.TryParse(x, out int validX) && (int.TryParse(y, out int validY)))
+	{
+		if (validX > 0 && validY > 0)
+		{
+			Console.WriteLine($"You have entered ({validX},{validY}).\n");
+			Console.WriteLine("The ordered pair falls within quardant I of the coordinate plane.\n");
+			invalidInput = false;
+			Console.WriteLine("Would you like to check another coordinate pair? (y/n)\n");
+			string loopAgain = Console.ReadLine().ToLower();
+			if (loopAgain == "y" || loopAgain == "yes")
+			{
+				
+			}
+			else
+			{
+                Console.WriteLine("Goodbye! \n");
+				
+            }
+        }
+		if (validX > 0 && validY < 0)
+		{
+			Console.WriteLine($"You have entered ({validX},{validY}).\n");
+			Console.WriteLine("The ordered pair falls within quardant IV of the coordinate plane.\n");
+			invalidInput = false;
+			Console.WriteLine("Would you like to check another coordinate pair? (y/n)\n");
+			string loopAgain = Console.ReadLine().ToLower();
+			if (loopAgain == "y" || loopAgain == "yes")
+			{
+				
+			}
+			else
+			{
+				Console.WriteLine("Goodbye! \n");
+				
+			}
+		}
+		if (validX < 0 && validY > 0)
+		{
+			Console.WriteLine($"You have entered ({validX},{validY}).\n");
+			Console.WriteLine("The ordered pair falls within quardant II of the coordinate plane.\n");
+			invalidInput = false;
+			Console.WriteLine("Would you like to check another coordinate pair? (y/n)\n");
+			string loopAgain = Console.ReadLine().ToLower();
+			if (loopAgain == "y" || loopAgain == "yes")
+			{
+				
+			}
+			else
+			{
+				Console.WriteLine("Goodbye! \n");
+				
+			}
+		}
+		if (validX < 0 && validY < 0)
+		{
+			Console.WriteLine($"You have entered ({validX},{validY}).\n");
+			Console.WriteLine("The ordered pair falls within quardant III of the coordinate plane.\n");
+			invalidInput = false;
+			Console.WriteLine("Would you like to check another coordinate pair? (y/n)\n");
+			string loopAgain = Console.ReadLine().ToLower();
+			if (loopAgain == "y" || loopAgain == "yes")
+			{
+				
+			}
+			else
+			{
+				Console.WriteLine("Goodbye! \n");
+				
+			}
+		}
+		else
+		{
+			Console.WriteLine($"You have entered ({validX},{validY}).\n");
+			Console.WriteLine("This is considered the 'origin' of the coordinate plane. \n");
+			
+		}
+	}
+	else
+	{
+		// Handle exception for incorrect entry.
+		Console.WriteLine("You have made an invalid entry. Please try again.");
+		invalidInput = true;
+	}
+}
